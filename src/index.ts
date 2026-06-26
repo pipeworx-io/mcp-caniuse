@@ -54,7 +54,8 @@ interface CIUData {
       browser: string;
       long_name?: string;
       usage_global?: Record<string, number>;
-      // Newer schema: plain version-string array; future / unreleased versions are nulls at the end.
+      // Plain version-string array, ascending. Leading entries are nulls
+      // (pre-tracking history); real versions occupy the tail.
       versions?: (string | null)[];
     }
   >;
@@ -87,7 +88,7 @@ const tools: McpToolExport['tools'] = [
   },
   {
     name: 'list_browsers',
-    description: 'Browser ids + version tracks.',
+    description: 'Return all browser IDs tracked by caniuse (e.g. chrome, safari, firefox, edge, ios_saf) with their recent version strings; use IDs with the `support` tool.',
     inputSchema: { type: 'object', properties: {} },
   },
   {
@@ -165,7 +166,7 @@ async function callTool(name: string, args: Record<string, unknown>): Promise<un
 
 function latestVersion(data: CIUData, browserId: string): string {
   const versions = data.agents[browserId]?.versions ?? [];
-  // versions trails nulls = unreleased future versions. The last non-null entry is "current".
+  // Leading nulls are pre-tracking history; walk from the tail for the latest real version.
   for (let i = versions.length - 1; i >= 0; i--) {
     const v = versions[i];
     if (v) return v;
