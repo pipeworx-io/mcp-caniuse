@@ -1,17 +1,19 @@
-# mcp-caniuse
+# @pipeworx/caniuse
 
-caniuse MCP — browser feature support tables
+Can I Use MCP — browser compatibility data for HTML / CSS / JS features. Sourced from Fyrd's caniuse-db. Keyless.
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 965+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1394+ live data sources.
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
-| `feature` | Full caniuse record for a feature id (e.g. "css-grid", "fetch", "webp"). |
-| `search` | Search features by title / keyword. |
-| `list_browsers` | Return all browser IDs tracked by caniuse (e.g. chrome, safari, firefox, edge, ios_saf) with their recent version strings; use IDs with the `support` tool. |
-| `support` | Convenience: is this feature supported in this browser version? Returns the raw caniuse support string + a parsed verdict. |
+- `feature(name)` — full record for a feature by id
+- `search(query)` — search features by title / keyword
+- `list_browsers()` — browser ids + version tracks
+- `support(feature, browser, version?)` — convenience: is this feature supported in this browser?
+
+## Data source
+
+`https://raw.githubusercontent.com/Fyrd/caniuse/main/data.json` — cached in worker memory for 24h.
 
 ## Quick Start
 
@@ -27,7 +29,7 @@ Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
 }
 ```
 
-Or connect to the full Pipeworx gateway for access to all 965+ data sources:
+Or connect to the full Pipeworx gateway for access to all 1394+ data sources:
 
 ```json
 {
@@ -51,7 +53,7 @@ The gateway picks the right tool and fills the arguments automatically.
 
 ## More
 
-- [All tools and guides](https://github.com/pipeworx-io/examples)
+- [Docs and guides](https://pipeworx.io/docs)
 - [pipeworx.io](https://pipeworx.io)
 
 ## License
