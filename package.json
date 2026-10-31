@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-caniuse",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "caniuse MCP — browser feature support tables",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "caniuse",
     "gatewaySlug": "caniuse",
-    "sourceHash": "v1-6b3abd8aaad0d7cf7f2cb55273c2c25e21b1ff09bb7d39f71294c43a485971f0",
-    "sourceCommit": "4277282d72f9bf55e548b3799aaf737baf22152f"
+    "sourceHash": "v1-4422b149dd602ec12d9c57ed45a5d46a1891c7dc36b1448bb392b1e6849be24b",
+    "sourceCommit": "547a3983b42dacf4389ca474860b0a1dee8e6053"
   }
 }
